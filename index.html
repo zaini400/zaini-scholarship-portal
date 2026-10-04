@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaini Scholarship Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#172033;
+}
+
+/* TOP BAR */
+.topbar{
+    background:#061d3a;
+    color:white;
+    text-align:center;
+    padding:8px;
+    font-size:13px;
+}
+
+/* HEADER */
+header{
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#073566;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-box{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#0b69c7,#062c58);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#172033;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#0b69c7;
+}
+
+.nav-apply{
+    background:#0b69c7 !important;
+    color:white !important;
+    padding:11px 18px;
+    border-radius:7px;
+}
+
+/* MOBILE MENU */
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:28px;
+}
+
+/* HERO */
+.hero{
+    min-height:600px;
+    background:
+    linear-gradient(100deg,rgba(4,34,68,.95),rgba(7,94,175,.82)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:1200px;
+    margin:auto;
+    padding:120px 20px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.4);
+    background:rgba(255,255,255,.1);
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.08;
+    max-width:760px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:650px;
+    font-size:18px;
+    color:#e8f2ff;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    padding:14px 23px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+.btn-gold{
+    background:#f4b82d;
+    color:#172033;
+}
+
+.btn-outline{
+    border:1px solid white;
+    color:white;
+    margin-left:10px;
+}
+
+/* STATS */
+.stats{
+    max-width:1000px;
+    margin:-45px auto 0;
+    position:relative;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+}
+
+.stat{
+    text-align:center;
+    padding:25px;
+    border-right:1px solid #e5e9ef;
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat h2{
+    color:#073566;
+    font-size:30px;
+}
+
+.stat p{
+    color:#687385;
+    font-size:13px;
+}
+
+/* GENERAL */
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.heading span{
+    color:#0b69c7;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.heading h2{
+    color:#073566;
+    font-size:36px;
+    margin:8px 0;
+}
+
+.heading p{
+    color:#687385;
+    max-width:650px;
+    margin:auto;
+}
+
+/* SCHOLARSHIP CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:30px;
+    border:1px solid #e4e8ef;
+    box-shadow:0 5px 20px rgba(0,0,0,.04);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    transition:.25s;
+    box-shadow:0 12px 30px rgba(0,0,0,.1);
+}
+
+.card-icon{
+    width:52px;
+    height:52px;
+    border-radius:12px;
+    background:#eaf3ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#073566;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#687385;
+    font-size:14px;
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+.card a{
+    color:#0b69c7;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* ABOUT */
+.about{
+    background:white;
+}
+
+.about-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-image{
+    min-height:350px;
+    border-radius:20px;
+    background:
+    linear-gradient(135deg,rgba(7,54,102,.8),rgba(11,105,199,.7)),
+    url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.about-image h2{
+    font-size:36px;
+}
+
+.about-text h2{
+    color:#073566;
+    font-size:36px;
+    margin:10px 0 20px;
+}
+
+.about-text p{
+    color:#687385;
+    line-height:1.8;
+}
+
+.check{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.check span{
+    display:inline-block;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    background:#16a05d;
+    color:white;
+    text-align:center;
+    line-height:23px;
+    margin-right:8px;
+}
+
+/* ELIGIBILITY */
+.eligibility{
+    background:#f5f7fb;
+}
+
+.eligibility-list{
+    max-width:800px;
+    margin:auto;
+    display:grid;
+    gap:15px;
+}
+
+.eligibility-item{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    border-left:5px solid #0b69c7;
+}
+
+/* APPLY FORM */
+.apply-section{
+    background:white;
+}
+
+.form-box{
+    max-width:850px;
+    margin:auto;
+    background:#f7f9fc;
+    padding:35px;
+    border-radius:15px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #d8dee8;
+    border-radius:7px;
+    outline:none;
+    background:white;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+    border-color:#0b69c7;
+}
+
+textarea{
+    height:110px;
+    resize:vertical;
+}
+
+.submit{
+    background:#0b69c7;
+    color:white;
+    width:100%;
+}
+
+/* STATUS */
+.status-box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.status-box input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:7px;
+    margin:15px 0;
+}
+
+.status-result{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    background:#e9f8ef;
+    border-radius:8px;
+    color:#147a43;
+    font-weight:bold;
+}
+
+/* FAQ */
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:white;
+    margin-bottom:12px;
+    padding:20px;
+    border-radius:9px;
+    border:1px solid #e4e8ef;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:bold;
+    color:#073566;
+}
+
+/* CTA */
+.cta{
+    background:linear-gradient(110deg,#062b55,#0b69c7);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.cta h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#e3efff;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+footer{
+    background:#041a33;
+    color:#b9c9dc;
+    padding:50px 20px 20px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+footer h3,
+footer h4{
+    color:white;
+    margin-bottom:15px;
+}
+
+footer p,
+footer a{
+    font-size:14px;
+    line-height:1.8;
+}
+
+footer a{
+    display:block;
+    color:#b9c9dc;
+    text-decoration:none;
+}
+
+.copyright{
+    max-width:1200px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    font-size:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .stats{
+        margin:20px;
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:none;
+        border-bottom:1px solid #e5e9ef;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .hero-content{
+        padding:80px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .btn-outline{
+        margin-left:0;
+        margin-top:10px;
+    }
+
+    .heading h2{
+        font-size:29px;
+    }
+
+    .form-box{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    2026 Scholarship Programme • Applications are now open
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="navbar">
+
+<div class="logo">
+    <div class="logo-box">Z</div>
+    <div>Zaini Scholarship Portal</div>
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#scholarships">Scholarships</a>
+    <a href="#about">About</a>
+    <a href="#eligibility">Eligibility</a>
+    <a href="#status">Status</a>
+    <a class="nav-apply" href="#apply">Apply Now</a>
+</div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="tag">
+    🎓 ZAINI EDUCATION FOUNDATION
+</div>
+
+<h1>
+    Empowering Students Through Education
+</h1>
+
+<p>
+    Discover scholarship opportunities that can help
+    you continue your education, achieve your goals,
+    and build a brighter future.
+</p>
+
+<a class="btn btn-gold" href="#scholarships">
+    Explore Scholarships
+</a>
+
+<a class="btn btn-outline" href="#apply">
+    Apply Now
+</a>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+
+<div class="stat">
+    <h2>1,000+</h2>
+    <p>Students Supported</p>
+</div>
+
+<div class="stat">
+    <h2>25+</h2>
+    <p>Scholarship Opportunities</p>
+</div>
+
+<div class="stat">
+    <h2>100%</h2>
+    <p>Online Application</p>
+</div>
+
+</div>
+
+
+<!-- SCHOLARSHIPS -->
+<section class="section" id="scholarships">
+
+<div class="heading">
+<span>Opportunities</span>
+<h2>Available Scholarships</h2>
+<p>
+    Choose a scholarship programme according to
+    your academic and financial circumstances.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">🎓</div>
+
+<h3>Merit Scholarship</h3>
+
+<p>
+For students with excellent academic performance
+and a strong commitment to education.
+</p>
+
+<a href="#apply">Apply for this scholarship →</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🤝</div>
+
+<h3>Need-Based Scholarship</h3>
+
+<p>
+Financial support for deserving students who require
+assistance to continue their education.
+</p>
+
+<a href="#apply">Apply for this scholarship →</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">💻</div>
+
+<h3>Technology Scholarship</h3>
+
+<p>
+Designed for students studying IT, Computer Science
+and other technology-related programmes.
+</p>
+
+<a href="#apply">Apply for this scholarship →</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+<div class="about">
+
+<div class="about-grid" id="about">
+
+<div class="about-image">
+<h2>
+    Education<br>
+    Changes Lives.
+</h2>
+</div>
+
+<div class="about-text">
+
+<span style="color:#0b69c7;font-weight:bold;">
+    ABOUT OUR FOUNDATION
+</span>
+
+<h2>
+    Supporting Ambition With Opportunity
+</h2>
+
+<p>
+Our mission is to connect talented and deserving
+students with educational opportunities. We believe
+that financial circumstances should not prevent a
+student from pursuing their dreams.
+</p>
+
+<div class="check">
+<span>✓</span>
+Simple online application
+</div>
+
+<div class="check">
+<span>✓</span>
+Transparent eligibility criteria
+</div>
+
+<div class="check">
+<span>✓</span>
+Student-focused support
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ELIGIBILITY -->
+<section class="section eligibility" id="eligibility">
+
+<div class="heading">
+
+<span>Requirements</span>
+
+<h2>
+    General Eligibility
+</h2>
+
+<p>
+    Applicants should review the specific requirements
+    of their selected scholarship.
+</p>
+
+</div>
+
+<div class="eligibility-list">
+
+<div class="eligibility-item">
+    ✓ Must be enrolled in an educational institution.
+</div>
+
+<div class="eligibility-item">
+    ✓ Must provide accurate academic information.
+</div>
+
+<div class="eligibility-item">
+    ✓ Must meet the academic requirements of the programme.
+</div>
+
+<div class="eligibility-item">
+    ✓ Required supporting documents must be submitted.
+</div>
+
+<div class="eligibility-item">
+    ✓ Applications must be submitted before the deadline.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APPLY FORM -->
+<section class="section apply-section" id="apply">
+
+<div class="heading">
+
+<span>Online Application</span>
+
+<h2>
+    Scholarship Application
+</h2>
+
+<p>
+    Complete the form below to submit your application.
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+<form id="applicationForm">
+
+<div class="form-row">
+
+<div class="input-group">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="input-group">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="03XXXXXXXXX"
+required>
+
+</div>
+
+
+<div class="input-group">
+
+<label>CNIC / B-Form</label>
+
+<input
+type="text"
+id="cnic"
+placeholder="Enter CNIC / B-Form number"
+required>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="input-group">
+
+<label>Scholarship Type</label>
+
+<select id="scholarship" required>
+
+<option value="">
+Select Scholarship
+</option>
+
+<option>
+Merit Scholarship
+</option>
+
+<option>
+Need-Based Scholarship
+</option>
+
+<option>
+Technology Scholarship
+</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Education Level</label>
+
+<select id="education" required>
+
+<option value="">
+Select Education Level
+</option>
+
+<option>Matric</option>
+<option>Intermediate</option>
+<option>BS / Undergraduate</option>
+<option>MS / MPhil</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Why do you need this scholarship?</label>
+
+<textarea
+id="reason"
+placeholder="Write a short explanation..."
+required></textarea>
+
+</div>
+
+
+<button class="btn submit" type="submit">
+Submit Application
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- STATUS -->
+<section class="section" id="status">
+
+<div class="heading">
+
+<span>Application Tracking</span>
+
+<h2>
+    Check Application Status
+</h2>
+
+<p>
+    Enter your application reference number below.
+</p>
+
+</div>
+
+
+<div class="status-box">
+
+<label>
+Application Reference Number
+</label>
+
+<input
+type="text"
+id="reference"
+placeholder="Example: ZS20260001">
+
+<button
+class="btn submit"
+onclick="checkStatus()">
+
+Check Status
+
+</button>
+
+<div class="status-result" id="statusResult">
+Application found! Status: <strong>Under Review</strong>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+<section class="section">
+
+<div class="heading">
+
+<span>FAQ</span>
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+<details>
+
+<summary>
+Who can apply for a scholarship?
+</summary>
+
+<p>
+Students who meet the eligibility requirements
+of the selected scholarship programme can apply.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Is the application online?
+</summary>
+
+<p>
+Yes. Applications can be submitted through the
+online application form.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+What documents are required?
+</summary>
+
+<p>
+Required documents depend on the scholarship.
+Applicants should provide accurate academic and
+identity information when requested.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+How can I check my application status?
+</summary>
+
+<p>
+Use the application reference number provided
+after submitting your application.
+</p>
+
+</details>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+<div class="cta">
+
+<h2>
+Ready to Start Your Journey?
+</h2>
+
+<p>
+Apply today and take the next step toward your
+educational future.
+</p>
+
+<a href="#apply" class="btn btn-gold">
+Start Application
+</a>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+Zaini Scholarship Portal
+</h3>
+
+<p>
+A student-focused scholarship platform created
+to connect deserving students with educational
+opportunities.
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+Quick Links
+</h4>
+
+<a href="#home">Home</a>
+<a href="#scholarships">Scholarships</a>
+<a href="#about">About</a>
+<a href="#apply">Apply</a>
+<a href="#status">Application Status</a>
+
+</div>
+
+
+<div>
+
+<h4>
+Contact
+</h4>
+
+<p>
+Email: info@zainischolarship.example
+</p>
+
+<p>
+Pakistan
+</p>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Zaini Scholarship Portal.
+All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("navLinks");
+
+    if(menu.style.display === "flex"){
+        menu.style.display = "none";
+    }
+    else{
+        menu.style.display = "flex";
+        menu.style.flexDirection = "column";
+        menu.style.position = "absolute";
+        menu.style.top = "75px";
+        menu.style.right = "20px";
+        menu.style.background = "white";
+        menu.style.padding = "20px";
+        menu.style.borderRadius = "10px";
+        menu.style.boxShadow = "0 5px 20px rgba(0,0,0,.15)";
+    }
+}
+
+
+/* APPLICATION FORM */
+
+document
+.getElementById("applicationForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const randomNumber =
+    Math.floor(10000 + Math.random() * 90000);
+
+    const reference =
+    "ZS2026" + randomNumber;
+
+    alert(
+        "Application submitted successfully!\n\n" +
+        "Your Reference Number is:\n" +
+        reference +
+        "\n\nPlease save this number."
+    );
+
+    document
+    .getElementById("reference")
+    .value = reference;
+
+    this.reset();
+
+});
+
+
+/* STATUS CHECKER */
+
+function checkStatus(){
+
+    const reference =
+    document.getElementById("reference").value.trim();
+
+    const result =
+    document.getElementById("statusResult");
+
+    if(reference === ""){
+
+        alert(
+            "Please enter your application reference number."
+        );
+
+        return;
+    }
+
+    result.style.display = "block";
+
+    result.innerHTML =
+    "Application found! Status: <strong>Under Review</strong>";
+}
+
+</script>
+
+</body>
+</html>
